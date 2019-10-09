@@ -11,6 +11,7 @@ public class MskIdleBehaviour : StateMachineBehaviour
         if (chara != null)
         {
             chara.SetCurrentSpriteByIndex(0);
+            chara.isCountDown = true;
         }
 
     }
@@ -22,10 +23,16 @@ public class MskIdleBehaviour : StateMachineBehaviour
     //}
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
+    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        Misaki chara = animator.GetComponent<Misaki>();
+        if (chara != null)
+        {
+            chara.SetCurrentSpriteByIndex(0);
+            chara.isCountDown = true;
+            chara.isCountDown = false;
+        }
+    }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
     //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

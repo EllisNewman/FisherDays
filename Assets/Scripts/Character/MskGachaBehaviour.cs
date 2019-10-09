@@ -11,6 +11,7 @@ public class MskGachaBehaviour : StateMachineBehaviour
         if (chara != null)
         {
             chara.SetCurrentSpriteByIndex(2);
+            chara.SpawnItem();
         }
         
     }
