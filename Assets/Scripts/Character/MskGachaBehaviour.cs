@@ -12,6 +12,7 @@ public class MskGachaBehaviour : StateMachineBehaviour
         {
             chara.SetCurrentSpriteByIndex(2);
             chara.SpawnItem();
+            chara.Play(1);
         }
         
     }
@@ -23,10 +24,15 @@ public class MskGachaBehaviour : StateMachineBehaviour
     //}
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
+    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        Misaki chara = animator.GetComponent<Misaki>();
+        if (chara != null)
+        {
+            chara.Stop();
+        }
 
-    //}
+    }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
     //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

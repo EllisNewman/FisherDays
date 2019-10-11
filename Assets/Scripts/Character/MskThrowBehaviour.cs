@@ -11,6 +11,7 @@ public class MskThrowBehaviour : StateMachineBehaviour
         if (chara != null)
         {
             chara.SetCurrentSpriteByIndex(3);
+            chara.Play(2);
         }
 
     }
@@ -22,10 +23,15 @@ public class MskThrowBehaviour : StateMachineBehaviour
     //}
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
+    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        Misaki chara = animator.GetComponent<Misaki>();
+        if (chara != null)
+        {
+            chara.Stop();
+        }
 
-    //}
+    }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
     //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
